@@ -1,3 +1,56 @@
-h1, h2 {
-  font-family: Lato;
+#imageCropper {
+  box-shadow: 5px 5px 10px grey;
+}
+
+#rightBar {
+  margin-left: 0;
+  left: 0;
+  height: 150px;
+  width: 10px;
+  display: inline-block;
+}
+
+#rightBar:hover {
+  cursor: e-resize;
+}
+
+#bottomBar {
+  margin-top: 0;
+  top: 0;
+  height: 10px;
+  width: 300px;
+}
+
+#bottomBar:hover {
+  cursor: s-resize;
+}
+
+#slider {
+  position: absolute;
+  width: 8px;
+  background: silver;
+  height: 100%;
+  left: 0;
+  transition: 0.1s;
+}
+
+#slider:hover {
+  transition: 0.2s;
+  box-shadow: 2px 2px 1px grey, 4px 4px 2px snow, 6px 6px 3px Lavender,
+    -3px -3px 5px lavenderblush, -3px 3px 2px navajowhite,
+    3px -3px 2px mintcream, inset 3px 3px 0 grey, inset -3px -3px 0 grey;
+  cursor: w-resize;
+}
+
+#editField {
+  border-radius: 5px;
+  background: rgba(133, 133, 123, 0.9);
+  width: 350px;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  height: 100%;
+  position: fixed;
+  z-index: 998;
+  transition: 0.1s;
 }

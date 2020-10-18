@@ -1,1 +1,55 @@
-<div id="app"></div>
+<div id="imageZone">
+<div>
+<canvas id="imageCropper"></canvas>
+<div id="rightBar"></div>
+<div id="bottomBar"></div>
+</div><br/>
+</div>
+<div style="right:0;top:0;position:fixed;z-index: 999; color: #777" class="textBandit"><label>Hide</label><input id="hideTools" type="checkbox" /></div>
+<div id="editField" >
+<div id="slider"></div>
+<div style="margin-left: 12px;">
+    <label>Upload</label><input type="radio" name="inputType" value="0" checked />
+    <label>URL</label><input type="radio" name="inputType" value="1" />
+    <span class="viewBandit">
+		<input type='file' id="imgInp" />
+    </span>
+    <span class="viewBandit" style="display: none;">
+        <input id="URLBandit" type="text" placeholder="Image URL" style="width: 100%" />
+    </span>
+    <label>Bredde: </label><input id="canvasWidth" class="input-sm canvasBandit" type="number" value="300"/><br/>
+    <label>H&oslash;jde: </label><input id="canvasHeight" class="input-sm canvasBandit" type="number" value="150"/><br/>
+    <label>St&oslash;rrelse (%): </label><input id="canvasScale" class="input-sm canvasBandit" type="number" value="100"/><br/>
+    <label>Forskydning X: </label><input id="canvasLeft" class="input-sm canvasBandit" type="number" value="0"/><br/>
+    <label>Forskydning Y: </label><input id="canvasTop" class="input-sm canvasBandit" type="number" value="0"/><br/>
+    <button id="clearRectBandit">Clear</button><br/>
+	<label>Tegnev&aelig;rkt&oslash;jer:</label>
+	<input id="showDrawingTools" type="checkbox"/>
+	<div id="drawingTools" style="display: none;">
+		<label>Penselst&oslash;rrelse: </label><input id="canvasBrush" class="input-sm" type="number" value="5"/><br/>
+		<label>Penselfarve: </label><input id="canvasBrushColour" class="input-sm" type="text" value="Black"/><br/>
+	</div>
+	<label>Filtre</label>	
+	<input id="showFilters" type="checkbox" />
+	<div id="filters" style="display: none;">
+		<label>Gr&aring;tone: </label><button id="grayScaleFilter">Change</button><br/>
+		<label>Inverteret: </label><button id="invertFilter">Change</button><br/>
+		<label>Lys: </label><input id="brightnessFilter" type="number" value="0"/><br/>
+		<label>R&oslash;d: </label><input id="redFilter" type="number" value="0"/><br/>
+		<label>Gr&oslash;n: </label><input id="greenFilter" type="number" value="0"/><br/>
+		<label>Bl&aring;: </label><input id="blueFilter" type="number" value="0"/><br/>
+		<label>Alpha: </label><input id="alphaFilter" type="number" value="0"/><br/>
+		<label>Threshold: </label><input id="thresholdFilter" type="number" value="0"/><br/>
+		<label>Noise: </label><input id="noiseFilter" type="number" value="0"/><br/>
+		<label>Saturate: </label><input id="saturateFilter" type="number" value="0"/><br/>						
+	</div>
+	<input placeholder="Billednavn" id="fileText" type="text" name="fileText"/>
+	<input placeholder="Filtype" id="fileType" type="text" name="fileType"/><br/>
+	<textarea placeholder="Beskrivelse" style="width:100%;" id="fileDescription" type="text" name="fileDescription"></textarea>
+	<button id="downloadBandit">Download</button>
+	<div ng-controller="uploadController">
+	<button ng-click="upload()">Upload</button>
+	</div>
+</div>
+</div>
+</div>
