@@ -22,12 +22,15 @@
     <label>St&oslash;rrelse (%): </label><input id="canvasScale" class="input-sm canvasBandit" type="number" value="100"/><br/>
     <label>Forskydning X: </label><input id="canvasLeft" class="input-sm canvasBandit" type="number" value="0"/><br/>
     <label>Forskydning Y: </label><input id="canvasTop" class="input-sm canvasBandit" type="number" value="0"/><br/>
-    <button id="clearRectBandit">Clear</button><br/>
+	<label>Pixelfarve (Nøjagtighed):</label>&nbsp;
+	<span id="colourBox"></span><br/>
+	<button id="clearRectBandit">Clear</button><br/>
 	<label>Tegnev&aelig;rkt&oslash;jer:</label>
 	<input id="showDrawingTools" type="checkbox"/>
 	<div id="drawingTools" style="display: none;">
 		<label>Penselst&oslash;rrelse: </label><input id="canvasBrush" class="input-sm" type="number" value="5"/><br/>
-		<label>Penselfarve: </label><input id="canvasBrushColour" class="input-sm" type="text" value="Black"/><br/>
+		<label>Penselfarve: </label>
+		<select id="canvasBrushColour" class="input-sm"></select>
 	</div>
 	<label>Filtre</label>	
 	<input id="showFilters" type="checkbox" />

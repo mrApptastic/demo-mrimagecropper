@@ -2035,12 +2035,15 @@ var colours = [
   }
 ];
 
-ct.fillStyle = document.getElementById("canvasBrushColour").value;
-document.getElementById(
-  "canvasBrushColour"
-).style.color = ct.fillStyle = document.getElementById(
-  "canvasBrushColour"
-).value;
+for (i = 0; i < colours.length; i++) {
+	if (i > 0) {
+		document.getElementById("canvasBrushColour").innerHTML += "<option style='color:" + colours[i].Hex  + "; text-shadow: 1px 1px 0 black;' value='" + colours[i].Hex  + "'>" + colours[i].ColorName + "</option>"; 
+	} else {
+		document.getElementById("canvasBrushColour").innerHTML = "<option style='color:" + colours[i].Hex  + "; text-shadow: 1px 1px 0 black;' value='" + colours[i].Hex  + "' selected>" + colours[i].ColorName + "</option>"; 
+	}	
+}
+
+ct.fillStyle = document.getElementById('canvasBrushColour').value;
 
 function readURL(input) {
   if (input.files && input.files[0]) {
@@ -2386,7 +2389,7 @@ function getColour(x, y) {
       selectedColour.Div = curT;
     }
   }
-  return selectedColour.ColorName + " " + selectedColour.Div;
+  return selectedColour.ColorName + " (" + selectedColour.Div + ")";
 }
 
 function convertNumber(number) {
@@ -2457,8 +2460,8 @@ document
   .addEventListener("mousemove", function(event) {
     var x = event.clientX - document.getElementById("imageCropper").offsetLeft;
     var y = event.clientY - document.getElementById("imageCropper").offsetTop;
-    console.log(getColour(x, y));
-
+    document.getElementById('colourBox').innerHTML = getColour(x, y)
+	
     if (
       draw == true &&
       document.getElementById("showDrawingTools").checked == true
@@ -2466,7 +2469,10 @@ document
       var ib = event.pageX - document.getElementById("imageCropper").offsetLeft;
       var bo = event.pageY - document.getElementById("imageCropper").offsetTop;
       var per = document.getElementById("canvasBrush").value;
-      ct.fillRect(ib + 12, bo, per, per);
+      ct.beginPath();
+      ct.arc(ib, bo, per, 0, 2 * Math.PI);
+      ct.closePath();
+      ct.fill();
     } else if (
       draw == true &&
       document.getElementById("showDrawingTools").checked == false
@@ -2505,11 +2511,6 @@ document
   .getElementById("canvasBrushColour")
   .addEventListener("change", function() {
     ct.fillStyle = document.getElementById("canvasBrushColour").value;
-    document.getElementById(
-      "canvasBrushColour"
-    ).style.color = ct.fillStyle = document.getElementById(
-      "canvasBrushColour"
-    ).value;
   });
 
 for (var i = 0; i < document.getElementsByName("inputType").length; i++) {
